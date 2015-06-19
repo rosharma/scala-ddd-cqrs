@@ -1,4 +1,4 @@
-package core.command
+package command
 
 /**
  * Created by roshan on 6/18/15.

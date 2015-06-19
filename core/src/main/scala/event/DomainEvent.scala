@@ -1,4 +1,4 @@
-package core.event
+package event
 
 /**
  * Created by roshansharma on 6/16/15.

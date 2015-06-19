@@ -1,6 +1,6 @@
 package lead
 
-import core.domain.BaseAggregateRoot
+import domain.BaseAggregateRoot
 
 /**
  * Created by roshansharma on 6/18/15.

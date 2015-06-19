@@ -1,4 +1,4 @@
-name := "rew"
+name := "root"
 
 version := "1.0"
 
@@ -8,4 +8,4 @@ lazy val core = project.in(file("core"))
 
 lazy val crm = project.in(file("crm")).dependsOn(core).aggregate(core)
 
-lazy val rew = project.in(file(".")).dependsOn(crm).aggregate(crm)
+lazy val root = project.in(file(".")).dependsOn(crm).aggregate(crm).enablePlugins(PlayScala)

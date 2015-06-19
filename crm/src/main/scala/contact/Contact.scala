@@ -1,8 +1,8 @@
 package contact
 
-import core.domain.BaseAggregateRoot
-import core.command.Command
-import core.command.CommandHandler
+import contact.Contact.{ContactCommand, ChangeContactOwner}
+import command.{Command, CommandHandler}
+import domain.BaseAggregateRoot
 
 /**
  * Created by roshansharma on 6/18/15.
@@ -13,7 +13,7 @@ case class Contact(id: String, name: String, owner: String) extends BaseAggregat
 
   def handleCommand(command: ContactCommand) = command match {
     case ChangeContactOwner(id, owner) => {
-      val contact =
+      //val contact =
 
     }
   }

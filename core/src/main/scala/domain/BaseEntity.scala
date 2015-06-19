@@ -1,4 +1,4 @@
-package core.domain
+package domain
 
 /**
  * Created by roshansharma on 6/18/15.

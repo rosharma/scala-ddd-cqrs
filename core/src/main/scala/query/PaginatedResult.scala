@@ -1,4 +1,4 @@
-package core.query
+package query
 
 /**
  * Created by roshansharma on 6/18/15.
