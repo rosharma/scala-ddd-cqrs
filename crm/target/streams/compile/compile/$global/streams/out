@@ -1,0 +1,31 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(/Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/contact/Contact.scala, /Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/lead/Lead.scala)[0m
+[0m[[0mdebug[0m] [0m	modified: Set()[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/contact/Contact.scala, /Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/lead/Lead.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/contact/Contact.scala, /Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/lead/Lead.scala)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 2 sources: invalidated sources (2) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 2 Scala sources to /Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/target/scala-2.11/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.11.2[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.11.2[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 6046a9d7, interfacing (CompilerInterface) with Scala compiler version 2.11.2[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/classes:/Users/roshansharma/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.2.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/target/scala-2.11/classes:/Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/core/target/scala-2.11/classes[0m
+[0m[[31merror[0m] [0m/Users/roshansharma/Documents/workspace/projects/scala-ddd-cqrs/scala-ddd-cqrs/crm/src/main/scala/lead/Lead.scala:8: class Lead needs to be abstract, since value id in trait BaseEntity of type String is not defined[0m
+[0m[[31merror[0m] [0mclass Lead extends BaseAggregateRoot {[0m
+[0m[[31merror[0m] [0m      ^[0m
+[0m[[31merror[0m] [0mone error found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(crm/compile:[31mcompile[0m) Compilation failed[0m
