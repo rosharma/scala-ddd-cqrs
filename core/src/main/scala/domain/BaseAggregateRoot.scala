@@ -9,10 +9,4 @@ import event.{DefaultEventPublisher, EventPublisher}
  */
 trait BaseAggregateRoot extends BaseEntity {
 
-  val id: String //= UUID.randomUUID().toString
-  /**
-   * Sample of Domain Event usage
-   * Event Publisher is injected by Factory/Repo
-   */
-  val eventPublisher: EventPublisher = DefaultEventPublisher
 }

@@ -15,7 +15,7 @@ trait HandlersProvider {
    * @param command
    * @return
    */
-  def getHandler[C](command: C): CommandHandler
+  def getHandler[C <: Command](command: C): Option[CommandHandler[C]]
 
   /**
    * Register [[CommandHandler]] for a [[Command]]
@@ -23,7 +23,7 @@ trait HandlersProvider {
    * @param command
    * @param commandHandler
    */
-  def register[C <: Command, H <: CommandHandler](command: Class[C], commandHandler: H): Unit
+  def register[C <: Command, H <: CommandHandler[C]](command: Class[C], commandHandler: H): Unit
 
   /**
    * Unregister [[Command]] and its [[CommandHandler]]
@@ -31,5 +31,5 @@ trait HandlersProvider {
    * @param command
    * @param commandHandler
    */
-  def unRegister[C <: Command, H <: CommandHandler](command: Class[C], commandHandler: H): Unit
+  def unRegister[C <: Command, H <: CommandHandler[C]](command: Class[C], commandHandler: H): Unit
 }

@@ -6,6 +6,6 @@ package domain
 trait BaseEntity {
 
   val id: String
-  val version: Long
+  //val version: Long
 
 }

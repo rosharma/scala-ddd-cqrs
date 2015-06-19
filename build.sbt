@@ -1,3 +1,5 @@
+import play.PlayScala
+
 name := "root"
 
 version := "1.0"

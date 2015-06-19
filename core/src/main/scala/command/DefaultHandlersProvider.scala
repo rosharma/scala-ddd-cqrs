@@ -8,20 +8,19 @@ package command
  */
 object DefaultHandlersProvider extends HandlersProvider {
 
-  var serviceRegistry: scala.collection.mutable.Map[Class[_ <: Command], CommandHandler] = scala.collection.mutable.Map.empty
+  var serviceRegistry: Map[Class[_ <: Command], CommandHandler[_ <: Command]] = Map.empty
 
-  override def getHandler[C](command: C): CommandHandler = {
-    val x = serviceRegistry collectFirst {case (c, h) if c isInstance command => h}
-    x.getOrElse(throw new Exception)
+  override def getHandler[C <: Command](command: C): Option[CommandHandler[C]] = {
+    serviceRegistry collectFirst {case (c, h) if c isInstance command => h.asInstanceOf[CommandHandler[C]]}
   }
 
-  override def unRegister[C <: Command, H <: CommandHandler](command: Class[C], commandHandler: H): Unit = {
+  override def unRegister[C <: Command, H <: CommandHandler[C]](command: Class[C], commandHandler: H): Unit = {
     if(serviceRegistry.get(command).isDefined){
       serviceRegistry -= command
     }
   }
 
-  override def register[C <: Command, H <: CommandHandler](command: Class[C], commandHandler: H): Unit = {
+  override def register[C <: Command, H <: CommandHandler[C]](command: Class[C], commandHandler: H): Unit = {
     serviceRegistry += (command -> commandHandler)
   }
 }

@@ -5,6 +5,6 @@ import domain.BaseAggregateRoot
 /**
  * Created by roshansharma on 6/18/15.
  */
-class Lead extends BaseAggregateRoot {
+case class Lead(id: String) extends BaseAggregateRoot {
 
 }

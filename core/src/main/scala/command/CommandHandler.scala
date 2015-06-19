@@ -1,10 +1,18 @@
 package command
 
+import event.{DefaultEventPublisher, EventPublisher}
+
 /**
  * Created by roshansharma on 6/18/15.
  *
  */
-trait CommandHandler {
+trait CommandHandler[C <: Command] {
 
-  def handleCommand[C <: Command, R](command: C): R
+  def handleCommand(command: C)
+
+  /**
+   * Sample of Domain Event usage
+   * Event Publisher is injected by Factory/Repo
+   */
+  val eventPublisher: EventPublisher = DefaultEventPublisher
 }
