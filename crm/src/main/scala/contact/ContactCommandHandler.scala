@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
  */
 class ContactCommandHandler extends CommandHandler[ContactCommand]{
 
-  def handleCommand(command: ContactCommand): Unit = command match {
+  def handleCommand(command: ContactCommand)(implicit context: String)  : Unit = command match {
     case e: ChangeContactOwner => {
       //find correct entity for that command
       val contact = ContactRepository.byId(e.id)

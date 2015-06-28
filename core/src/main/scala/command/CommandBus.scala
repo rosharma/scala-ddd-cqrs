@@ -10,10 +10,10 @@ trait CommandBus {
   //Inject HandlerProvider
   lazy val handlerProvider: HandlersProvider = DefaultHandlersProvider
 
-  def dispatch[C <: Command](command: C) = {
+  def dispatch[C <: Command](command: C)(implicit requestContext: String) = {
 
     val handler = handlerProvider.getHandler(command)
 
-    handler.getOrElse(throw new Exception).handleCommand(command)
+    handler.getOrElse(throw new Exception).handleCommand(command)(requestContext)
   }
 }
