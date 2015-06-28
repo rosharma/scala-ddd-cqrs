@@ -3,3 +3,4 @@
 # ~~~~
 
 GET        /                    api.Application.index
+GET       /changeowner        api.Application.changeOwner
