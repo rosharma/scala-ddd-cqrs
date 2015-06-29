@@ -3,6 +3,7 @@ package contact
 import command.{CommandHandler, Command}
 import contact.ContactCommandHandler.{ContactOwnerChanged, ChangeContactOwner, ContactCommand}
 import event.{DefaultEventBus, DomainEvent}
+import play.api.libs.json.Json
 import scala.concurrent.ExecutionContext.Implicits.global
 /**
  * Created by roshansharma on 6/19/15.
@@ -30,5 +31,5 @@ object ContactCommandHandler {
   sealed trait ContactEvent extends DomainEvent
   case class ContactOwnerChanged(id: String, owner: String) extends ContactEvent
 
-
+  implicit val changeOwnerFormatter = Json.format[ChangeContactOwner]
 }

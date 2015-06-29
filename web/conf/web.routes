@@ -1,0 +1,10 @@
+# Routes
+# This file defines all application web.routes (Higher priority web.routes first)
+# ~~~~
+
+# Home page
+POST          /crm/changeOwner                                @resources.ContactResource.changeOwner
+GET           /crm/contacts                                    @resources.ContactResource.contacts
+
+
+    

@@ -10,6 +10,7 @@ object Global extends GlobalSettings {
     Logger.info("Application has started")
     val system = ActorSystem("rew3")
     CrmEventHandler.eventHandler(system)
+    CRMCommandProvider.registerProviders()
   }
 
   override def onStop(app: Application) {
