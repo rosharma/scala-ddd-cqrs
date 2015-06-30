@@ -1,5 +1,7 @@
 # Routes
-# This file defines all application routes (Higher priority routes first)
+# This file defines all application web.routes (Higher priority web.routes first)
 # ~~~~
 
-GET        /                    api.Application.index
+GET        /                   api.Application.index
+GET        /changeowner        api.Application.changeOwner
+->         /                   web.Routes
