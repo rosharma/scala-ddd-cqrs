@@ -8,7 +8,7 @@ import event.{DefaultEventPublisher, EventPublisher}
  */
 trait CommandHandler[C <: Command] {
 
-  def handleCommand(command: C)
+  def handleCommand(command: C)(implicit requestContext: String)
 
   /**
    * Sample of Domain Event usage
