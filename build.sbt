@@ -10,7 +10,9 @@ libraryDependencies ++= Seq(cache, ws, filters)
 
 lazy val core = project.in(file("core"))
 
-lazy val crm = project.in(file("crm")).dependsOn(core)
+lazy val integration = project.in(file("integration")).dependsOn(core)
+
+lazy val crm = project.in(file("crm")).dependsOn(core).aggregate(core, integration)
 
 lazy val web = project.in(file("web")).dependsOn(crm).enablePlugins(PlayScala)
 
