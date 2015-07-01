@@ -1,7 +1,7 @@
 package lead
 
 import command.{CommandHandler, Command}
-import event.DomainEvent
+import event.{DefaultEventPublisher, EventPublisher, DomainEvent}
 import lead.LeadCommandHandler.{LeadConverted, ConvertLead, LeadCommand}
 
 /**
@@ -16,9 +16,11 @@ class LeadCommandHandler extends CommandHandler[LeadCommand]{
       LeadRepository.save(lead)
 
       //Publish Event
-      eventPublisher.publish(LeadConverted(e.id, e.to))
+//      eventPublisher.publish(LeadConverted(e.id, e.to))
     }
   }
+
+  val eventPublisher: EventPublisher = DefaultEventPublisher
 }
 
 object LeadCommandHandler {

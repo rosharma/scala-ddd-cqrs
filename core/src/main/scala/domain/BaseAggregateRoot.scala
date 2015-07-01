@@ -2,7 +2,7 @@ package domain
 
 import java.util.UUID
 
-import event.{DefaultEventPublisher, EventPublisher}
+import event.EventPublisher
 
 /**
  * Created by roshansharma on 6/18/15.
