@@ -7,7 +7,7 @@ import akka.util.Subclassification
 /**
  * Created by kbraghubanshi on 6/26/2015.
  */
-object DefaultEventBus extends ActorEventBus with SubchannelClassification {
+object AkkaEventBus extends ActorEventBus with SubchannelClassification with EventBus {
 
   type Classifier = Class[_ <: DomainEvent]
   type Event = (_, Class[_ <: DomainEvent])

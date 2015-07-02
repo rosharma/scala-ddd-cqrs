@@ -8,8 +8,8 @@ object Global extends GlobalSettings {
 
   override def onStart(app: Application) {
     Logger.info("Application has started")
-    val system = ActorSystem("rew3")
-    CrmEventHandler.eventHandler(system)
+    implicit val system = ActorSystem("rew3")
+    CrmEventHandlerProvider.registerAllProviders
     CRMCommandProvider.registerProviders()
   }
 
