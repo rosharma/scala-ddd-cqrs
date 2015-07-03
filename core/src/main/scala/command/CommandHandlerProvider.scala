@@ -5,9 +5,9 @@ package command
  *
  * This provides an interface to create concrete handlers providers.
  *
- * example: [[DefaultHandlersProvider]] is based on Scala Immutable Map.
+ * example: [[CommandHandlerProvider]] is based on Scala Immutable Map.
  */
-trait HandlersProvider {
+trait CommandHandlerProvider {
 
   /**
    * Lookup [[CommandHandler]] for [[Command]]

@@ -1,7 +1,5 @@
 package event
 
-import akka.actor.Actor
-
 /**
  * Created by roshansharma on 6/18/15.
  *
@@ -9,9 +7,7 @@ import akka.actor.Actor
  *
  * Example: Akka Actor subscribing Event into EventBus
  */
-trait EventHandler extends Actor{
+trait EventHandler {
 
-//  def canHandle(event: Object): Boolean
-//
-//  def handle(event: Object): Unit
+    def handle(event: Object): Unit
 }

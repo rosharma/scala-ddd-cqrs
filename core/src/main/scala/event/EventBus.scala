@@ -5,4 +5,7 @@ package event
  */
 trait EventBus {
 
+  def register(t: Class[_ <: EventHandler],r: Class[_ <: DomainEvent]): Unit
+
+  def unRegister(t: Class[_ <: EventHandler],r: Class[_ <: DomainEvent]): Unit
 }

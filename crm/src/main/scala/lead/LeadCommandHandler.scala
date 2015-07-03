@@ -1,7 +1,7 @@
 package lead
 
 import command.{CommandHandler, Command}
-import event.{DefaultEventPublisher, EventPublisher, DomainEvent}
+import event.{AkkaEventPublisher, EventPublisher, DomainEvent}
 import lead.LeadCommandHandler.{LeadConverted, ConvertLead, LeadCommand}
 
 /**
@@ -20,7 +20,7 @@ class LeadCommandHandler extends CommandHandler[LeadCommand]{
     }
   }
 
-  val eventPublisher: EventPublisher = DefaultEventPublisher
+  val eventPublisher: EventPublisher = AkkaEventPublisher
 }
 
 object LeadCommandHandler {

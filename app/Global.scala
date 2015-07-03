@@ -1,15 +1,15 @@
 import akka.actor.ActorSystem
-import play.api.{Logger, Application, GlobalSettings}
+import com.softwaremill.macwire.Macwire
+import play.api.{Logger, GlobalSettings}
 
 /**
  * Created by roshansharma on 6/18/15.
  */
-object Global extends GlobalSettings {
+object Global extends GlobalSettings with Macwire {
 
   override def onStart(app: Application) {
     Logger.info("Application has started")
-    implicit val system = ActorSystem("rew3")
-    CrmEventHandlerProvider.registerAllProviders
+    CrmEventHandlerProvider.registerProviders()
     CRMCommandProvider.registerProviders()
   }
 
@@ -25,5 +25,12 @@ object Global extends GlobalSettings {
   //Register Security Providers
   def registerSecurityProviders() = {
 
+  }
+
+  //DI using Macwire
+  val wired = wiredInModule(new Application)
+
+  override def getControllerInstance[A](controllerClass: Class[A]): A = {
+    wired.lookupSingleOrThrow(controllerClass)
   }
 }
