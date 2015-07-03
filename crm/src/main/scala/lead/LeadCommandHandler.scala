@@ -1,14 +1,15 @@
 package lead
 
-import command.{CommandHandler, Command}
-import event.{AkkaEventPublisher, EventPublisher, DomainEvent}
-import lead.LeadCommandHandler.{LeadConverted, ConvertLead, LeadCommand}
+import command.{Command, CommandHandler}
+import event.{AkkaEventPublisher, DomainEvent}
+import lead.LeadCommandHandler.{ConvertLead, LeadCommand}
 
 /**
  * Created by roshansharma on 6/19/15.
  */
 class LeadCommandHandler extends CommandHandler[LeadCommand]{
 
+  override def eventPublisher = new AkkaEventPublisher
   override def handleCommand(command: LeadCommand)(implicit context: String) : Unit = command match {
     case e: ConvertLead => {
       val lead = LeadRepository.byId(e.id)
@@ -20,7 +21,6 @@ class LeadCommandHandler extends CommandHandler[LeadCommand]{
     }
   }
 
-  val eventPublisher: EventPublisher = AkkaEventPublisher
 }
 
 object LeadCommandHandler {

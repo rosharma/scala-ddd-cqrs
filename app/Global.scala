@@ -1,19 +1,20 @@
-import akka.actor.ActorSystem
-import com.softwaremill.macwire.Macwire
+import com.google.inject.{Injector, Guice}
 import play.api.{Logger, GlobalSettings}
 
 /**
  * Created by roshansharma on 6/18/15.
  */
-object Global extends GlobalSettings with Macwire {
+object Global extends GlobalSettings {
 
-  override def onStart(app: Application) {
+  override def onStart(app: play.api.Application) {
     Logger.info("Application has started")
+    val injector = Guice.createInjector(new ApplicationContext)
+
     CrmEventHandlerProvider.registerProviders()
-    CRMCommandProvider.registerProviders()
+    CRMCommandProvider.registerProviders(injector)
   }
 
-  override def onStop(app: Application) {
+  override def onStop(app:  play.api.Application) {
     Logger.info("Application shutdown...")
   }
 
@@ -26,11 +27,11 @@ object Global extends GlobalSettings with Macwire {
   def registerSecurityProviders() = {
 
   }
-
-  //DI using Macwire
-  val wired = wiredInModule(new Application)
-
-  override def getControllerInstance[A](controllerClass: Class[A]): A = {
-    wired.lookupSingleOrThrow(controllerClass)
-  }
+//
+//  //DI using Macwire
+//  val wired = wiredInModule(new Application)
+//
+//  override def getControllerInstance[A](controllerClass: Class[A]): A = {
+//    wired.lookupSingleOrThrow(controllerClass)
+//  }
 }

@@ -1,6 +1,6 @@
 package resources
 
-import command.{CommandBus, DefaultCommandHandlerProvider, CommandHandler}
+import command.{CommandDispatcher, DefaultCommandHandlerProvider, CommandHandler}
 import contact.ContactCommandHandler._
 import contact.ContactQuery
 import play.api.libs.json.{JsError, JsSuccess, Json}
@@ -19,19 +19,9 @@ class ContactResource extends Controller{
     val changeOwnerCommand = request.body.validate[ChangeContactOwner]
     implicit val requestContext: String = ""
     changeOwnerCommand.map{ command =>
-
-      CommandBus.dispatch(command)
-
-      val commandHandler: Option[CommandHandler[ChangeContactOwner]] = DefaultCommandHandlerProvider.getHandler(command)
-          commandHandler match{
-            case Some(contactCommandHandler) =>
-              contactCommandHandler.handleCommand(command)
-              Future.successful(Ok(Json.toJson("contact owner changed successfully")))
-            case None => Future.successful(Ok(Json.obj("error.message" ->"CommandHandler not found for ChangeContactOwner")))
-          }
+      CommandDispatcher.dispatch(command)
+      Future.successful(Ok(Json.toJson("contact owner changed successfully")))
     }.recoverTotal{err : JsError =>  Future.successful(BadRequest)}
-
-
   }
 
   def contacts = Action.async{ request =>

@@ -7,6 +7,7 @@ import event.EventPublisher
  *
  */
 trait CommandHandler[C <: Command] {
+//  this:EventPublisher =>
 
   def handleCommand(command: C)(implicit requestContext: String)
 
@@ -15,5 +16,7 @@ trait CommandHandler[C <: Command] {
    * Sample of Domain Event usage
    * Event Publisher is injected by Factory/Repo
    */
-  val eventPublisher = wire[EventPublisher]
+   def eventPublisher: EventPublisher
+
+
 }
