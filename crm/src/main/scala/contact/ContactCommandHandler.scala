@@ -1,14 +1,18 @@
 package contact
 
-import command.{CommandHandler, Command}
-import contact.ContactCommandHandler.{ContactOwnerChanged, ChangeContactOwner, ContactCommand}
-import event.{EventPublisher, AkkaEventPublisher, DomainEvent}
+import com.google.inject.Inject
+import command.{Command, CommandHandler}
+import contact.ContactCommandHandler.{ChangeContactOwner, ContactCommand, ContactOwnerChanged}
+import event.{DomainEvent, EventPublisher}
 import play.api.libs.json.Json
+
 import scala.concurrent.ExecutionContext.Implicits.global
 /**
  * Created by roshansharma on 6/19/15.
  */
-class ContactCommandHandler extends CommandHandler[ContactCommand]{
+class  ContactCommandHandler @Inject()( eventPublishers: EventPublisher) extends CommandHandler[ContactCommand]{
+
+  override def eventPublisher = eventPublishers
 
   def handleCommand(command: ContactCommand)(implicit context: String)  : Unit = command match {
     case e: ChangeContactOwner => {

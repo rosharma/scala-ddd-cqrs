@@ -11,7 +11,7 @@ import scala.concurrent.Future
  */
 object Application extends Controller{
 
-  val contactCommandHandler = new ContactCommandHandler()
+//  val contactCommandHandler = new ContactCommandHandler()
   // TODO ... modify requestContext Context to get detail info of user
   implicit val  requestContext: String = ""
 
@@ -22,7 +22,7 @@ object Application extends Controller{
   def changeOwner = Action.async{ request =>
 
     val changeOwner = ChangeContactOwner("id","owner")
-    contactCommandHandler.handleCommand(changeOwner)
+//    contactCommandHandler.handleCommand(changeOwner)
     Future.successful(Ok(""))
   }
 }
