@@ -5,5 +5,5 @@ package event
  */
 trait EventPublisher {
 
-  def publish[T <: DomainEvent](event: T,r:Class[_ <: DomainEvent]): Unit
+  def publish[T <: DomainEvent](event: T, r: Class[_ <: DomainEvent]): Unit
 }

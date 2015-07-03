@@ -5,10 +5,10 @@ package command
  *
  * CommandBus will dispatch the command to its correct [[CommandHandler]]
  */
-trait CommandBus {
+object CommandBus {
 
   //Inject HandlerProvider
-  lazy val handlerProvider: HandlersProvider = DefaultHandlersProvider
+  lazy val handlerProvider: CommandHandlerProvider = DefaultCommandHandlerProvider
 
   def dispatch[C <: Command](command: C)(implicit requestContext: String) = {
 

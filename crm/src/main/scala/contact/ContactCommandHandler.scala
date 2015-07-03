@@ -2,16 +2,13 @@ package contact
 
 import command.{CommandHandler, Command}
 import contact.ContactCommandHandler.{ContactOwnerChanged, ChangeContactOwner, ContactCommand}
-import event.{EventPublisher, DefaultEventPublisher, DomainEvent}
+import event.{EventPublisher, AkkaEventPublisher, DomainEvent}
 import play.api.libs.json.Json
 import scala.concurrent.ExecutionContext.Implicits.global
 /**
  * Created by roshansharma on 6/19/15.
  */
 class ContactCommandHandler extends CommandHandler[ContactCommand]{
-
-  val eventPublisher: EventPublisher = DefaultEventPublisher
-
 
   def handleCommand(command: ContactCommand)(implicit context: String)  : Unit = command match {
     case e: ChangeContactOwner => {

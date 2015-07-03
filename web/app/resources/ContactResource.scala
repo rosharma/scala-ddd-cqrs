@@ -1,6 +1,6 @@
 package resources
 
-import command.{DefaultHandlersProvider, CommandHandler}
+import command.{CommandBus, DefaultCommandHandlerProvider, CommandHandler}
 import contact.ContactCommandHandler._
 import contact.ContactQuery
 import play.api.libs.json.{JsError, JsSuccess, Json}
@@ -19,7 +19,10 @@ class ContactResource extends Controller{
     val changeOwnerCommand = request.body.validate[ChangeContactOwner]
     implicit val requestContext: String = ""
     changeOwnerCommand.map{ command =>
-          val commandHandler: Option[CommandHandler[ChangeContactOwner]] = DefaultHandlersProvider.getHandler(command)
+
+      CommandBus.dispatch(command)
+
+      val commandHandler: Option[CommandHandler[ChangeContactOwner]] = DefaultCommandHandlerProvider.getHandler(command)
           commandHandler match{
             case Some(contactCommandHandler) =>
               contactCommandHandler.handleCommand(command)
